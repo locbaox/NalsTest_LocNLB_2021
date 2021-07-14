@@ -1,0 +1,33 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import com.example.demo.entity.Work;
+
+public class WorkService implements IWorkService {
+
+	@Override
+	public Iterable<Work> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Work> findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Work save(Work work) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(int id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

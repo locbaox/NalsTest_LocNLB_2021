@@ -1,0 +1,39 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Work;
+import com.example.demo.repository.IWorkRepository;
+
+@Service
+public class WorkService implements IWorkService {
+	@Autowired
+	private IWorkRepository workRepository;
+	
+
+	@Override
+	public Optional<Work> findById(int id) {
+		return workRepository.findById(id);
+	}
+
+	@Override
+	public Work save(Work work) {
+		return workRepository.save(work);
+	}
+
+	@Override
+	public void remove(int id) {
+		workRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Work> findAllPagination(int page, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

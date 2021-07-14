@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DemoApplicationTests" project="demo" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.DemoApplicationTests" time="1.262" displayname="DemoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DemoApplicationTests]">
+    <testcase name="whenResourcesNull" classname="com.example.demo.DemoApplicationTests" time="1.051" displayname="whenResourcesNull()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DemoApplicationTests]/[method:whenResourcesNull()]"/>
+    <testcase name="whenResourcesAvaiable" classname="com.example.demo.DemoApplicationTests" time="0.021" displayname="whenResourcesAvaiable()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DemoApplicationTests]/[method:whenResourcesAvaiable()]"/>
+    <testcase name="testInsert" classname="com.example.demo.DemoApplicationTests" time="0.148" displayname="testInsert()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DemoApplicationTests]/[method:testInsert()]"/>
+    <testcase name="testUpdate" classname="com.example.demo.DemoApplicationTests" time="0.039" displayname="testUpdate()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.DemoApplicationTests]/[method:testUpdate()]"/>
+  </testsuite>
+</testrun>

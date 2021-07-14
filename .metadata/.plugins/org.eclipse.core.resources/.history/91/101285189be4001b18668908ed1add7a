@@ -1,0 +1,77 @@
+package com.example.demo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Work;
+import com.example.demo.repository.IWorkRepository;
+
+@Service
+public class Workervice implements IWorkervice {
+	@Autowired
+	private IWorkRepository workRepository;
+	
+
+	@Override
+	public Optional<Work> findById(int id) {
+		return workRepository.findById(id);
+	}
+
+	@Override
+	public Work save(Work work) {
+		return workRepository.save(work);
+	}
+
+	@Override
+	public void remove(int id) {
+		workRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Work> getListSortAndPanigation(int page, int size, String[] sort) {
+		try {
+		      List<Work> Work = new ArrayList<Work>();
+
+		      if (sort[0].contains(",")) {
+		        // will sort more than 2 fields
+		        // sortWork="field, direction"
+		        for (String sortWork : sort) {
+		          String[] _sort = sortWork.split(",");
+		          Work.add(new Work(getSortDirection(_sort[1]), _sort[0]));
+		        }
+		      } else {
+		        // sort=[field, direction]
+		        Work.add(new Work(getSortDirection(sort[1]), sort[0]));
+		      }
+
+		      List<Tutorial> tutorials = new ArrayList<Tutorial>();
+		      Pageable pagingSort = PageRequest.of(page, size, Sort.by(Work));
+
+		      Page<Tutorial> pageTuts;
+		      if (title == null)
+		        pageTuts = tutorialRepository.findAll(pagingSort);
+		      else
+		        pageTuts = tutorialRepository.findByTitleContaining(title, pagingSort);
+
+		      tutorials = pageTuts.getContent();
+
+		      if (tutorials.isEmpty()) {
+		        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		      }
+
+		      Map<String, Object> response = new HashMap<>();
+		      response.put("tutorials", tutorials);
+		      response.put("currentPage", pageTuts.getNumber());
+		      response.put("totalItems", pageTuts.getTotalElements());
+		      response.put("totalPages", pageTuts.getTotalPages());
+
+		      return new ResponseEntity<>(response, HttpStatus.OK);
+		    } catch (Exception e) {
+		      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
+	}
+}

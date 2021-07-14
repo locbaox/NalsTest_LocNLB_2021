@@ -1,0 +1,19 @@
+package com.example.demo.service;
+
+import java.awt.print.Pageable;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.Query;
+
+import com.example.demo.entity.Work;
+
+public interface IWorkService {
+
+	Iterable<Work> findAllPagination(int page, int size);
+	
+	Optional<Work> findById(int id);
+
+	Work save(Work work);
+
+    void remove(int id);
+}

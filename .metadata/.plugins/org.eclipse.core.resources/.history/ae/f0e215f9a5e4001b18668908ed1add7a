@@ -1,0 +1,21 @@
+package com.example.demo;
+
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
+
+
+@SpringBootTest
+class DemoApplicationTests {
+	
+	@Test
+	public void whenResourcesAreRetrievedPaged_then200IsReceived(){
+	    Response response = RestAssured.get("http://localhost:8080/get" + "?page=0&size=2");
+
+	    assertThat(response.getStatusCode(), 200);
+	}
+
+}

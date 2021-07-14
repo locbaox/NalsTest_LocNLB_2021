@@ -1,0 +1,14 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import com.example.demo.entity.Work;
+
+public interface IWorkService {
+	
+	Optional<Work> findById(int id);
+
+	Work save(Work work);
+
+    void remove(int id);
+}
